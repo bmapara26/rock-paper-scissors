@@ -22,20 +22,20 @@
             let choice = Math.floor(Math.random() * 3) + 1; //get computer's random choice by making it pick a random number between 1 and 3
 
             if (choice === 1) {
-                console.log("Computer Chose: ");
+                console.log("Computer Chose:\n" + rock);
                 return rock;                
             } else if (choice === 2) {
-                console.log("Computer Chose: ");  
+                console.log("Computer Chose:\n" + paper);  
                 return paper;              
             } else {
-                console.log("Computer Chose: ");
+                console.log("Computer Chose:\n" + scissor);
                 return scissor; 
             }
         }
 
         function getHumanChoice(){
             let humanChoice = prompt("Enter: Rock, Paper or Scissor!");
-            console.log("You chose: ");
+            console.log("You chose:\n" + humanChoice);
             return humanChoice.toLowerCase();
         }
 
@@ -54,17 +54,23 @@
                                     
         // }
 
-        function playRound(humanChoice, computerChoice) {
+        function playRound(computerChoice, humanChoice) {
             if (computerChoice === humanChoice) {
                 console.log("It's a tie!"); 
             } else if (computerChoice === rock && humanChoice === scissor) {
                 console.log("You lose!");                
+            } else if (computerChoice === rock && humanChoice === paper) {
+                console.log("YOU WIN!");                                 
             } else if (computerChoice === scissor && humanChoice === paper) {
                 console.log("You lose!");                
+            } else if (computerChoice === scissor && humanChoice === rock) {
+                console.log("YOU WIN!");                
             } else if (computerChoice === paper && humanChoice === rock) {
                 console.log("You lose!");               
+            } else if (computerChoice === paper && humanChoice === scissor) {
+                console.log("YOU WIN!");                
             } else {
-                console.log("YOU WIN!"); 
+                console.log("Something went wrong"); 
             }
                                     
         }
@@ -73,10 +79,10 @@
 
 
 
-        console.log(getComputerChoice());
-        console.log(getHumanChoice());
-        console.log(playRound(getHumanChoice, getComputerChoice));
-        // console.log(getResult());45
+        // console.log(getComputerChoice());
+        // console.log(getHumanChoice());
+        console.log(playRound(getComputerChoice(), getHumanChoice()));
+        
     </script>
     
 </body>
